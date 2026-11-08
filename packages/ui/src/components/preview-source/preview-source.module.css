@@ -1,0 +1,40 @@
+.root {
+  position: relative;
+}
+
+.toolbar {
+  position: absolute;
+  z-index: 2;
+  top: var(--space-xsmall);
+  right: var(--space-xsmall);
+  background: var(--color-background);
+  border-radius: var(--radius-medium);
+}
+
+/** fix control group with nested components */
+.downloadTooltip > a {
+  border-top-left-radius: inherit;
+  border-bottom-left-radius: inherit;
+}
+
+.downloadTooltip > a:hover,
+.downloadTooltip > a:active,
+.downloadTooltip > a:focus {
+  box-shadow: none;
+}
+
+/** Source content */
+.content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  background: var(--color-highlight);
+  color: var(--color-text);
+  font-family: var(--font-family-fixed);
+}
+
+/** Empty / loading state */
+.isEmpty .content {
+  pointer-events: none;
+  background: var(--color-highlight);
+}

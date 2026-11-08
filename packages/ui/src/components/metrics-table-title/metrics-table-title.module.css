@@ -1,0 +1,30 @@
+.root {
+  color: var(--color-text-ultra-light);
+}
+
+.title {
+  color: inherit;
+  font-size: 1em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.anchor {
+  display: block;
+}
+
+.anchorIcon {
+  display: block;
+  margin: -2px 0; /* compensate for the vertical space */
+}
+
+.info {
+  font-size: var(--size-small);
+  font-family: var(--font-family-fixed);
+  font-weight: normal;
+}
+
+.readMore {
+  cursor: pointer;
+  text-decoration: underline;
+}

@@ -1,0 +1,115 @@
+{
+  "name": "bundle-stats-workspaces",
+  "workspaces": [
+    "packages/cli",
+    "packages/cli-utils",
+    "packages/gatsby-plugin",
+    "packages/html-templates",
+    "packages/next-plugin",
+    "packages/plugin-webpack-filter",
+    "packages/plugin-webpack-validate",
+    "packages/rollup-plugin",
+    "packages/ui",
+    "packages/utils",
+    "packages/webpack-plugin"
+  ],
+  "private": true,
+  "description": "Analyze webpack stats(bundle size, assets, modules, packages) and compare the results between different builds.",
+  "engines": {
+    "node": ">= 14.0"
+  },
+  "devDependencies": {
+    "@babel/core": "8.1.0",
+    "@eslint/compat": "2.1.1",
+    "@eslint/eslintrc": "3.3.7",
+    "@eslint/js": "10.0.1",
+    "@tsconfig/node14": "14.1.8",
+    "@types/react": "18.3.13",
+    "@typescript-eslint/eslint-plugin": "8.72.1",
+    "@typescript-eslint/parser": "8.72.1",
+    "@vitest/browser": "5.1.0",
+    "@vitest/browser-playwright": "5.1.0",
+    "dotenv": "18.0.9",
+    "eslint": "10.14.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-import-resolver-node": "0.4.0",
+    "eslint-import-resolver-webpack": "0.13.11",
+    "eslint-plugin-import": "2.32.0",
+    "eslint-plugin-jest": "29.17.0",
+    "eslint-plugin-jsx-a11y": "6.10.2",
+    "eslint-plugin-prettier": "5.5.7",
+    "eslint-plugin-react": "7.37.5",
+    "eslint-plugin-react-hooks": "7.1.1",
+    "globals": "17.14.0",
+    "husky": "9.1.7",
+    "lerna": "10.1.1",
+    "lint-staged": "17.6.0",
+    "playwright": "1.64.1",
+    "prettier": "3.9.10",
+    "react-is": "^18.3.1",
+    "rimraf": "6.1.4",
+    "typescript": "5.9.3",
+    "verdaccio": "^6.2.0",
+    "vitest": "5.1.0",
+    "wait-on": "9.5.1"
+  },
+  "scripts": {
+    "build": "lerna run build",
+    "build-storybook": "lerna run build-storybook",
+    "bump": "./scripts/bump.sh",
+    "format": "prettier --write \"**/*.{js,jsx}\"",
+    "lerna": "lerna",
+    "lint": "lerna exec 'npm run lint -- --quiet'",
+    "release": "./scripts/release.sh",
+    "test": "lerna run test",
+    "serve-storybook": "lerna run serve-storybook --parallel",
+    "test-storybook": "lerna run test-storybook",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/relative-ci/bundle-stats.git"
+  },
+  "keywords": [
+    "webpack",
+    "bundle",
+    "assets",
+    "modules",
+    "size"
+  ],
+  "author": {
+    "name": "Viorel Cojocaru",
+    "email": "vio@relative-ci.com",
+    "url": "https://relative-ci.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/relative-ci/bundle-stats/issues"
+  },
+  "homepage": "https://github.com/relative-ci/bundle-stats#readme",
+  "overrides": {
+    "eslint-config-airbnb": {
+      "eslint": "$eslint",
+      "eslint-plugin-react-hooks": "$eslint-plugin-react-hooks"
+    },
+    "eslint-plugin-import": {
+      "eslint": "$eslint"
+    },
+    "eslint-plugin-jest": {
+      "@typescript-eslint/eslint-plugin": "$@typescript-eslint/eslint-plugin"
+    },
+    "eslint-plugin-jsx-a11y": {
+      "eslint": "$eslint"
+    },
+    "eslint-plugin-react": {
+      "eslint": "$eslint"
+    },
+    "@vitest/browser": "$@vitest/browser",
+    "@vitest/browser-playwright": "$@vitest/browser-playwright",
+    "vitest": "$vitest"
+  },
+  "dependencies": {
+    "@eslint/compat": "^2.1.0"
+  }
+}

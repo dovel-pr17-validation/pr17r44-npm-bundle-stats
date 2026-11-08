@@ -1,0 +1,43 @@
+{
+  "name": "next-plugin-bundle-stats",
+  "version": "4.23.1",
+  "description": "In-depth bundle analyzer for webpack(bundle size, assets, modules)",
+  "main": "index.js",
+  "engines": {
+    "node": ">= 14.0"
+  },
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "webpack",
+    "bundle-size",
+    "bundle-analyzer",
+    "bundle-stats",
+    "stats",
+    "bundle",
+    "size",
+    "assets",
+    "chunks",
+    "modules",
+    "next",
+    "next-plugin"
+  ],
+  "author": {
+    "name": "Viorel Cojocaru",
+    "email": "vio@relative-ci.com",
+    "url": "https://relative-ci.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/relative-ci/bundle-stats.git"
+  },
+  "bugs": {
+    "url": "https://github.com/relative-ci/bundle-stats/issues"
+  },
+  "homepage": "https://github.com/relative-ci/bundle-stats/blob/master/packages/next-plugin#readme",
+  "dependencies": {
+    "bundle-stats-webpack-plugin": "^4.23.1"
+  }
+}

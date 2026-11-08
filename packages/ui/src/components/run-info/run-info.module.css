@@ -1,0 +1,109 @@
+.title {
+  color: var(--color-text-light);
+  font-weight: bold;
+  font-size: var(--size-xsmall);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.titleText {
+  max-width: 100%;
+  flex: 0 1 auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.titleIcon {
+  flex: 0 0 var(--space-small);
+  /* compensate for the button icon spacing */
+  margin-top: -3px !important;
+  margin-bottom: -3px !important;
+}
+
+.currentMetric {
+  color: var(--color-heading);
+  white-space: nowrap;
+  font-weight: bold;
+  line-height: var(--line-height-number);
+  height: var(--line-height-number);
+}
+
+.baselineMetric {
+  color: var(--color-text-ultra-light);
+  font-size: var(--size-small);
+  font-family: var(--font-family-fixed);
+  font-weight: normal;
+  line-height: var(--line-height-number);
+  height: var(--line-height-number);
+}
+
+.baselineMetricValue {
+  color: var(--color-text-light);
+  line-height: inherit;
+}
+
+.delta {
+  font-weight: bold;
+  font-size: var(--size-small);
+  line-height: var(--line-height-number);
+}
+
+.deltaValue + .deltaValue::before {
+  margin-left: var(--space-xxxsmall);
+  margin-right: var(--space-xxxsmall);
+  content: '/';
+  color: var(--color-outline-dark);
+}
+
+/* Hover state */
+.titleHoverCardIcon span[aria-controls=''],
+.titleTooltipIcon[aria-controls=''] {
+  opacity: 0;
+  visibility: hidden;
+  /* delay hiding until the fade-out completes */
+  transition:
+    opacity var(--transition-duration-out) var(--transition-timing-function),
+    color var(--transition-duration-out) var(--transition-timing-function),
+    visibility 0s linear var(--transition-duration-out);
+}
+
+.root:hover .titleHoverCardIcon span,
+.root:hover .titleTooltipIcon {
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity var(--transition-duration-in) var(--transition-timing-function),
+    color var(--transition-duration-in) var(--transition-timing-function),
+    visibility 0s;
+}
+
+/* Loading state */
+.loading .currentMetric {
+  max-width: 6em;
+}
+
+.loading .baselineMetric {
+  max-width: 6em;
+}
+
+.loading .delta {
+  max-width: 12em;
+}
+
+/* Size variation */
+.small .currentMetric {
+  font-size: var(--size-medium);
+}
+
+.currentMetric {
+  font-size: var(--size-xxlarge);
+}
+
+.large .currentMetric {
+  font-size: var(--size-xxxlarge);
+}
+
+.xlarge .currentMetric {
+  font-size: var(--size-xxxxlarge);
+}

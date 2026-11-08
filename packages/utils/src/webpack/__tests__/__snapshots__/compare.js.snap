@@ -1,0 +1,216 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Webpack/compare should compare all modules 1`] = `
+[
+  {
+    "biggerIsBetter": false,
+    "changed": false,
+    "key": "module-a",
+    "label": "module-a",
+    "runs": [
+      {
+        "chunkIds": [
+          "1",
+        ],
+        "delta": 0,
+        "deltaPercentage": 0,
+        "deltaType": "NO_CHANGE",
+        "displayDelta": "0B",
+        "displayDeltaPercentage": "0%",
+        "displayValue": "1000B",
+        "name": "module-a",
+        "originalValue": 1000,
+        "value": 1000,
+      },
+      {
+        "chunkIds": [
+          "1",
+        ],
+        "displayValue": "1000B",
+        "name": "module-a",
+        "originalValue": 1000,
+        "value": 1000,
+      },
+    ],
+  },
+  {
+    "biggerIsBetter": false,
+    "changed": true,
+    "key": "module-b",
+    "label": "module-b",
+    "runs": [
+      {
+        "chunkIds": [
+          "1",
+        ],
+        "delta": 500,
+        "deltaPercentage": 33.33333333,
+        "deltaType": "NEGATIVE",
+        "displayDelta": "+500B",
+        "displayDeltaPercentage": "+33.33%",
+        "displayValue": "1.95KiB",
+        "name": "module-b",
+        "originalValue": 2000,
+        "regression": true,
+        "value": 2000,
+      },
+      {
+        "chunkIds": [
+          "1",
+        ],
+        "displayValue": "1.46KiB",
+        "name": "module-b",
+        "originalValue": 1500,
+        "value": 1500,
+      },
+    ],
+  },
+  {
+    "biggerIsBetter": false,
+    "changed": false,
+    "key": "node_modules/package-a/index.js",
+    "label": "node_modules/package-a/index.js",
+    "runs": [
+      {
+        "chunkIds": [
+          "1",
+        ],
+        "delta": 0,
+        "deltaPercentage": 0,
+        "deltaType": "NO_CHANGE",
+        "displayDelta": "0B",
+        "displayDeltaPercentage": "0%",
+        "displayValue": "1000B",
+        "name": "node_modules/package-a/index.js",
+        "originalValue": 1000,
+        "value": 1000,
+      },
+      {
+        "chunkIds": [
+          "1",
+        ],
+        "displayValue": "1000B",
+        "name": "node_modules/package-a/index.js",
+        "originalValue": 1000,
+        "value": 1000,
+      },
+    ],
+  },
+  {
+    "biggerIsBetter": false,
+    "changed": true,
+    "key": "node_modules/package-a/node_modules/package-c/index.js",
+    "label": "node_modules/package-a/node_modules/package-c/index.js",
+    "runs": [
+      {
+        "chunkIds": [
+          "1",
+        ],
+        "delta": 1000,
+        "deltaPercentage": 100,
+        "deltaType": "HIGH_NEGATIVE",
+        "displayDelta": "+1000B",
+        "displayDeltaPercentage": "+100%",
+        "displayValue": "1000B",
+        "name": "node_modules/package-a/node_modules/package-c/index.js",
+        "originalValue": 1000,
+        "regression": true,
+        "value": 1000,
+      },
+      {
+        "displayValue": "0B",
+        "value": 0,
+      },
+    ],
+  },
+  {
+    "biggerIsBetter": false,
+    "changed": false,
+    "key": "node_modules/package-b/index.js",
+    "label": "node_modules/package-b/index.js",
+    "runs": [
+      {
+        "chunkIds": [
+          "1",
+        ],
+        "delta": 0,
+        "deltaPercentage": 0,
+        "deltaType": "NO_CHANGE",
+        "displayDelta": "0B",
+        "displayDeltaPercentage": "0%",
+        "displayValue": "1000B",
+        "name": "node_modules/package-b/index.js",
+        "originalValue": 1000,
+        "value": 1000,
+      },
+      {
+        "chunkIds": [
+          "1",
+        ],
+        "displayValue": "1000B",
+        "name": "node_modules/package-b/index.js",
+        "originalValue": 1000,
+        "value": 1000,
+      },
+    ],
+  },
+  {
+    "biggerIsBetter": false,
+    "changed": false,
+    "key": "node_modules/package-c/index.js",
+    "label": "node_modules/package-c/index.js",
+    "runs": [
+      {
+        "chunkIds": [
+          "1",
+        ],
+        "delta": 0,
+        "deltaPercentage": 0,
+        "deltaType": "NO_CHANGE",
+        "displayDelta": "0B",
+        "displayDeltaPercentage": "0%",
+        "displayValue": "1000B",
+        "name": "node_modules/package-c/index.js",
+        "originalValue": 1000,
+        "value": 1000,
+      },
+      {
+        "chunkIds": [
+          "1",
+        ],
+        "displayValue": "1000B",
+        "name": "node_modules/package-c/index.js",
+        "originalValue": 1000,
+        "value": 1000,
+      },
+    ],
+  },
+  {
+    "biggerIsBetter": false,
+    "changed": true,
+    "key": "node_modules/package-d/index.js",
+    "label": "node_modules/package-d/index.js",
+    "runs": [
+      {
+        "chunkIds": [
+          "1",
+        ],
+        "delta": 1000,
+        "deltaPercentage": 100,
+        "deltaType": "HIGH_NEGATIVE",
+        "displayDelta": "+1000B",
+        "displayDeltaPercentage": "+100%",
+        "displayValue": "1000B",
+        "name": "node_modules/package-d/index.js",
+        "originalValue": 1000,
+        "regression": true,
+        "value": 1000,
+      },
+      {
+        "displayValue": "0B",
+        "value": 0,
+      },
+    ],
+  },
+]
+`;

@@ -1,0 +1,48 @@
+.root {
+  display: inline-block;
+}
+
+.anchor {
+  display: inline-block;
+  color: inherit;
+  cursor: default;
+  text-decoration: none;
+  transition-property: color;
+  transition-duration: var(--transition-duration-out);
+  transition-timing-function: var(--transition-timing-function);
+}
+
+.anchor:focus,
+.anchor:active,
+.anchor:hover {
+  color: var(--color-accent-dark);
+  outline: 0;
+  transition-duration: var(--transition-duration-in);
+}
+
+.hoverCard {
+  z-index: var(--layer-overlay);
+  padding: calc(var(--space-small) - 1px);
+  border: 1px solid var(--color-outline);
+  border-radius: var(--radius-medium);
+  width: calc(100vw - 2 * var(--space-small));
+  max-width: 340px;
+  outline: none;
+  filter: drop-shadow(var(--shadow-layer-high));
+  will-change: filter;
+  background: var(--color-light);
+  font-size: var(--size-small);
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: var(--transition-duration-out);
+  transition-timing-function: var(--transition-timing-function);
+}
+
+.hoverCard[data-enter] {
+  opacity: 1;
+  transition-duration: var(--transition-duration-in);
+}
+
+.hoverCard[data-leave] {
+  pointer-events: none;
+}

@@ -1,0 +1,69 @@
+.root {
+  color: var(--color-gray-ultra-light);
+  font-family: var(--font-family-fixed);
+  white-space: nowrap;
+}
+
+.CHANGE {
+  color: var(--color-info);
+}
+
+.LOW_NEGATIVE {
+  color: var(--color-red-light);
+}
+
+.NEGATIVE {
+  color: var(--color-red);
+}
+
+.HIGH_NEGATIVE {
+  color: var(--color-red-dark);
+}
+
+.LOW_POSITIVE {
+  color: var(--color-green-light);
+}
+
+.POSITIVE {
+  color: var(--color-green);
+}
+
+.HIGH_POSITIVE {
+  color: var(--color-green-dark);
+}
+
+.inverted {
+  padding: 0 2px;
+  border-radius: var(--radius-xsmall);
+  background-color: var(--color-gray-ultra-light);
+  color: var(--color-light);
+}
+
+.inverted.CHANGE {
+  background: var(--color-info-light);
+}
+
+.inverted.LOW_NEGATIVE {
+  background: var(--color-red-light);
+}
+
+.inverted.NEGATIVE {
+  background: var(--color-red);
+}
+
+.inverted.HIGH_NEGATIVE {
+  background: var(--color-red-dark);
+}
+
+
+.inverted.LOW_POSITIVE {
+  background: var(--color-green-light);
+}
+
+.inverted.POSITIVE {
+  background: var(--color-green);
+}
+
+.inverted.HIGH_POSITIVE {
+  background: var(--color-green-dark);
+}

@@ -1,0 +1,17 @@
+.root {
+  white-space: nowrap;
+  /** override tooltip styles */
+  color: var(--color-text-ultra-light) !important;
+}
+
+/** done state */
+.root svg {
+  transition-property: color;
+  transition-duration: var(--transition-duration-out);
+  transition-timing-function: var(--transition-timing-function);
+}
+
+.done svg {
+  color: var(--color-success);
+  transition-duration: var(--transition-duration-in);
+}

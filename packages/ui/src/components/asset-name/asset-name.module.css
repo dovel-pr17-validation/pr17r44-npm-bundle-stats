@@ -1,0 +1,33 @@
+.notPredictive {
+  flex: 0 0 auto;
+  width: var(--space-small);
+  height: var(--space-small);
+}
+
+.notPredictiveIcon {
+  color: var(--color-warning-dark);
+}
+
+.notPredictiveHoverCard {
+  max-width: 480px;
+}
+
+.link {
+  flex: 1 1 auto;
+}
+
+.tags {
+  flex: 0 0 auto;
+  display: inline-flex;
+  gap: 1px;
+}
+
+.tags:empty {
+  display: none;
+}
+
+.name {
+  flex: 1 1 auto;
+  vertical-align: middle;
+  text-decoration: inherit;
+}

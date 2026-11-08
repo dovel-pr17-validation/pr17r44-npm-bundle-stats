@@ -1,0 +1,12 @@
+node_modules
+.editorconfig
+.eslintignore
+.eslintrc.js
+**/__tests__
+__fixtures__
+CHANGELOG.md
+jsconfig.json
+jest.config.js
+jest.global.js
+tsconfig.*
+src

@@ -1,0 +1,81 @@
+:root {
+  --header-height: 0px;
+}
+
+.root {
+  padding-top: var(--header-height);
+}
+
+.empty {
+  padding-top: var(--space-large);
+  min-height: 80vh;
+  text-align: center;
+}
+
+.header {
+  background-color: var(--color-background);
+  border-bottom: 1px solid var(--color-outline);
+}
+
+.metricChangeLegendContainer {
+  padding-top: var(--space-small);
+  padding-bottom: var(--space-xxsmall);
+}
+
+.summaryContainer {
+  padding-top: var(--space-xxsmall);
+  padding-bottom: var(--space-xxsmall);
+}
+
+/** legend and summary overlays: above the sticky tabs, below the header */
+.raisedOverlaysPortal {
+  --layer-overlay: calc(var(--layer-xhigh) + 2);
+}
+
+.tabsContainer {
+  border-bottom: 1px solid var(--color-outline);
+  background: var(--color-light);
+}
+
+.tabs {
+  border-bottom: 0;
+}
+
+.tabActive {
+  color: var(--color-accent);
+  transition-duration: var(--transition-duration-in);
+}
+
+.tabActive::after {
+  opacity: 1;
+  transition-duration: var(--transition-duration-in);
+}
+
+.tabsContent {
+  padding-top: var(--space-medium);
+  padding-bottom: var(--space-medium);
+  min-height: 480px;
+}
+
+@media (min-width: 600px) {
+  :root {
+    --header-height: 52px;
+  }
+
+  .header {
+    position: fixed;
+    /** above the sticky tabs, entry info and the entry info overlays */
+    z-index: calc(var(--layer-xhigh) + 3);
+    left: 0;
+    top: 0;
+    right: 0;
+    height: var(--header-height);
+  }
+
+  .tabsContainer {
+    position: sticky;
+    top: var(--header-height);
+    /** above the overlays (tooltips, hovercards, dropdowns), except the legend and summary overlays */
+    z-index: var(--layer-xhigh);
+  }
+}

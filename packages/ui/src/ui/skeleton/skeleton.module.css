@@ -1,0 +1,18 @@
+.root {
+  background: var(--skeleton-inline-background);
+  opacity: var(--skeleton-opacity);
+  pointer-events: none;
+  min-width: 6em;
+  border-radius: var(--radius-medium);
+}
+
+/** empty char to keep the text height */
+.root::before {
+  display: inline-block;
+  content: '\A0';
+  color: transparent;
+}
+
+.block {
+  background: var(--skeleton-block-background);
+}

@@ -1,0 +1,59 @@
+{
+  "name": "@bundle-stats/utils",
+  "version": "4.23.1",
+  "description": "BundleStats utils",
+  "main": "lib/index.js",
+  "module": "lib-esm/index.js",
+  "types": "types/index.d.ts",
+  "sideEffects": false,
+  "engines": {
+    "node": ">= 14.0"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build": "npm run build-lib && npm run build-esm",
+    "build-lib": "rimraf ./lib && tsc --rootDir ./src --project tsconfig.lib.json --outDir ./lib",
+    "build-esm": "rimraf ./lib-esm ./types && tsc --rootDir ./src --project tsconfig.esm.json --outDir ./lib-esm",
+    "lint": "eslint .",
+    "test": "TZ=UTC jest src --maxWorkers=4"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Viorel Cojocaru",
+    "email": "vio@relative-ci.com",
+    "url": "https://relative-ci.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/relative-ci/bundle-stats.git"
+  },
+  "bugs": {
+    "url": "https://github.com/relative-ci/bundle-stats/issues"
+  },
+  "homepage": "https://github.com/relative-ci/bundle-stats/blob/master/packages/utils#readme",
+  "dependencies": {
+    "@bundle-stats/plugin-webpack-filter": "^4.23.1",
+    "@bundle-stats/plugin-webpack-validate": "^4.23.1",
+    "serialize-query-params": "2.0.4"
+  },
+  "devDependencies": {
+    "@types/jest": "30.0.0",
+    "@types/lodash": "4.17.27",
+    "core-js": "3.51.0",
+    "jest": "^30.5.0",
+    "jest-cli": "30.5.2",
+    "jest-date-mock": "1.0.10",
+    "lodash": "4.18.1",
+    "regenerator-runtime": "0.14.1",
+    "rimraf": "6.1.4",
+    "ts-jest": "29.4.15",
+    "typescript": "5.9.3"
+  },
+  "peerDependencies": {
+    "core-js": "^3.0.0",
+    "lodash": "^4.0.0"
+  }
+}

@@ -1,0 +1,21 @@
+.root {
+  font-family: var(--font-family-fixed);
+  line-height: 1;
+}
+
+.displayUnit {
+  font-size: var(--size-small);
+}
+
+.content {
+  font-size: var(--size-small);
+}
+
+.inline .display {
+  display: inline-block;
+}
+
+.inline .content {
+  display: inline-block;
+  margin: 0 0 0 var(--space-xxsmall);
+}

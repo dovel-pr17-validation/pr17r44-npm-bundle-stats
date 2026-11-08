@@ -1,0 +1,18 @@
+.root {
+  width: 100%;
+  position: relative;
+  z-index: var(--layout-low); /** show collapsed border on focus */
+}
+
+.input {
+  height: var(--space-large);
+}
+
+.cancelButton {
+  position: absolute;
+  right: var(--space-xxxsmall);
+  top: 50%;
+  transform: translateY(-50%);
+  padding: var(--space-xxxsmall);
+  background: radial-gradient(var(--color-background) 50%, transparent);
+}

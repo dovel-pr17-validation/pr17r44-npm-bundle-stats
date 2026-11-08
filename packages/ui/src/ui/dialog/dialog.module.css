@@ -1,0 +1,129 @@
+/** place overlays triggered from inside the dialog on top of the dialog */
+.portal {
+  --layer-overlay: calc(var(--layer-xxhigh) + 1);
+}
+
+.backdrop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--layer-xxhigh);
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: var(--transition-duration-out);
+  transition-timing-function: var(--transition-timing-function);
+}
+
+.backdrop[data-enter] {
+  opacity: 1;
+  transition-duration: var(--transition-duration-in);
+}
+
+.backdrop[data-leave] {
+  pointer-events: none;
+}
+
+.backdrop::before {
+  content: ' ';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-backdrop);
+}
+
+.dialog {
+  --dialog-header-height: var(--space-medium);
+  --dialog-vspace: var(--space-xsmall);
+  --dialog-padding: var(--space-xsmall);
+
+  width: calc(100vw - 2 * var(--dialog-padding));
+  position: relative;
+  border-radius: var(--radius-medium);
+  border: 1px solid var(--color-outline);
+  padding: calc(var(--dialog-padding) - 1px);
+  background: var(--color-background);
+  box-shadow: 0 0 var(--space-medium) var(--color-shadow);
+  z-index: var(--layer-xxhigh);
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: var(--transition-duration-out);
+  transition-timing-function: var(--transition-timing-function);
+}
+
+.dialog[data-enter] {
+  opacity: 1;
+  transition-duration: var(--transition-duration-in);
+}
+
+.digalog[data-leave] {
+  pointer-events: none;
+}
+
+.header {
+  min-height: var(--dialog-header-height);
+}
+
+.header:empty {
+  display: none;
+}
+
+.headerTitle {
+  font-weight: bold;
+}
+
+.headerClose {
+  position: absolute;
+  right: var(--space-xxsmall);
+  top: var(--space-xxsmall);
+  padding: var(--space-xxxsmall);
+  flex: 0 0 auto;
+  color: var(--color-outline-dark);
+}
+
+.headerClose:hover,
+.headerClose:focus,
+.headerClose:active {
+  color: var(--color-text-ultra-light);
+}
+
+.content {
+  width: 100%;
+  max-height: calc(
+    100vh - 2 * var(--space-medium) - 2 * var(--dialog-padding) - var(--dialog-header-height) -
+      var(--dialog-vspace)
+  );
+  padding-bottom: 0.3em; /* extra space to compensate for the title line-height and allow to show focus state correctly on buttons */
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+/** Width variation */
+.width--narrow {
+  max-width: 480px;
+}
+
+.width--medium {
+  max-width: 640px;
+}
+
+.width--wide {
+  max-width: 960px;
+}
+
+.width--extra-wide {
+  max-width: calc(var(--max-width) + 2 * var(--space-medium));
+}
+
+/** Center variation */
+.center {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .dialog {
+    --dialog-vspace: var(--space-medium);
+    --dialog-padding: var(--space-large);
+  }
+}

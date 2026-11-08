@@ -1,0 +1,13 @@
+{
+  "name": "test-rollup-plugin-bundle-stats",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "rollup -c",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "memfs": "4.2.1",
+    "rollup-plugin-bundle-stats": "*",
+    "jest": "^29.6.1"
+  }
+}

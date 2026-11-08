@@ -1,0 +1,23 @@
+.root {
+  width: calc(var(--space-small) + var(--space-xxsmall));
+  height: calc(var(--space-small) + var(--space-xxsmall));
+  padding: var(--space-xxxsmall);
+  border-radius: 50%;
+  background: var(--color-highlight);
+}
+
+.error {
+  background: var(--color-highlight-danger);
+  color: var(--color-danger);
+}
+
+.warning {
+  padding-top: 1px;
+  background: var(--color-highlight-warning);
+  color: var(--color-warning);
+}
+
+.info {
+  background: var(--color-highlight-info);
+  color: var(--color-info);
+}

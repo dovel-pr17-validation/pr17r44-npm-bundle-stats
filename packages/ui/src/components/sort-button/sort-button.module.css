@@ -1,0 +1,84 @@
+.root {
+  --icon-dimension: 13px;
+  display: inline-block;
+  border-radius: var(--radius-small);
+  position: relative;
+  color: var(--color-text-ultra-light);
+}
+
+.toggle {
+  padding: 1px var(--space-xxxsmall);
+  padding-right: calc(1px + var(--icon-dimension));
+}
+
+.direction {
+  position: absolute;
+  padding: 1px;
+  display: block;
+  overflow: hidden;
+  right: -2px; /* compensate for the button padding */
+  color: var(--color-text-ultra-light);
+}
+
+.directionIcon {
+  display: block;
+  width: var(--icon-dimension);
+  height: var(--icon-dimension);
+}
+
+.directionActive {
+  color: var(--color-text);
+  transition-duration: var(--transition-duration-in);
+}
+
+.direction:hover,
+.direction:active,
+.direction:focus {
+  color: var(--color-text-dark);
+}
+
+.directionAsc {
+  padding-bottom: 0;
+  bottom: 50%;
+}
+
+.directionAsc .directionIcon {
+  transform: translateY(3px);
+}
+
+.directionDesc {
+  padding-top: 0;
+  top: 50%;
+}
+
+.directionDesc .directionIcon {
+  transform: translateY(-5px);
+}
+
+.interactive {
+  margin: calc(0px - var(--space-xxxsmall));
+  margin-right: calc(0px - 1px - var(--icon-dimension));
+}
+
+.interactive:hover,
+.interactive:active,
+.interactive:focus {
+  background: var(--color-outline);
+}
+
+.direction {
+  pointer-events: none;
+  opacity: 0;
+  transition-property: color, opacity;
+  transition-duration: var(--transition-duration-out);
+  transition-timing-function: var(--transition-timing-function);
+}
+
+.active .direction,
+.interactive:hover .direction,
+.interactive:hover:active .direction,
+.interactive:hover:focus .direction {
+  pointer-events: auto;
+  opacity: 1;
+  transition-duration: var(--transition-duration-in);
+}

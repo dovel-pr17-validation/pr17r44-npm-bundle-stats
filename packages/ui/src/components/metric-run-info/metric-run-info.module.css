@@ -1,0 +1,17 @@
+.metricHoverCardTitle {
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.readMoreLink {
+  cursor: pointer;
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.readMoreLink:hover,
+.readMoreLink:focus,
+.readMoreLink:active {
+  color: var(--color-primary-dark);
+  text-decoration: none;
+}

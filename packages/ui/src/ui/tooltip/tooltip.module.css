@@ -1,0 +1,42 @@
+.root {
+  position: relative;
+  color: inherit;
+  line-height: inherit;
+}
+
+.root:focus,
+.root:active,
+.root:hover {
+  outline: none;
+}
+
+.tooltip {
+  z-index: var(--layer-overlay);
+  padding: var(--space-xxxsmall) var(--space-xxsmall);
+  border-radius: var(--radius-small);
+  background: var(--color-text);
+  max-width: 28em;
+  color: var(--color-background);
+  font-size: var(--size-small);
+  text-align: center;
+  filter: drop-shadow(var(--shadow-layer));
+  will-change: filter;
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: var(--transition-duration-out);
+  transition-timing-function: var(--transition-timing-function);
+}
+
+.tooltip[data-enter] {
+  opacity: 1;
+  transition-duration: var(--transition-duration-in);
+}
+
+.tooltip[data-leave] {
+  pointer-events: none;
+}
+
+.arrow svg {
+  display: block;
+  fill: var(--color-text);
+}

@@ -1,0 +1,109 @@
+/* explicit ControlGroup last item styles to override ariakit injected sibling nodes */
+.itemLast {
+  border-top-right-radius: var(--radius-small) !important;
+  border-bottom-right-radius: var(--radius-small) !important;
+}
+
+/* Filter (label with input + text) */
+.filter {
+  position: relative;
+  width: 100%;
+  max-width: 240px;
+  color: var(--color-text);
+}
+
+.filterControl {
+  margin: 0;
+  flex: 0 0 auto;
+  height: 1em;
+}
+
+.filterLabel {
+  flex: 1 1 auto;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.filterControl[disabled] + .filterLabel {
+  color: var(--color-text-light);
+}
+
+.filter:hover {
+  color: var(--color-dark);
+}
+
+/** Filter single */
+.filterSingle {
+  padding: calc(var(--space-xxsmall) - 1px);
+  border: 1px solid var(--color-outline);
+  border-radius: var(--radius-small);
+  font-size: var(--size-small);
+  line-height: var(--space-small);
+  color: var(--color-text-ultra-light);
+  transition-property: color, border-color;
+  transition-duration: var(--transition-duration-out);
+  transition-timing-function: var(--transition-timing-function);
+}
+
+.filterSingle:focus,
+.filterSingle:active,
+.filterSingle:hover {
+  border-color: var(--color-outline-dark);
+  transition-duration: var(--transition-duration-in);
+}
+
+/** Filter group */
+.filterGroupItems {
+  max-height: calc(10 * (var(--space-small) + 2 * var(--space-xxxsmall)));
+  overflow: auto;
+}
+
+.filterGroupItem {
+  position: relative;
+}
+
+.filterGroupItemFilter {
+  padding-right: 24px; /* space for only button */
+}
+
+.filterGroupOnlyButton {
+  display: none;
+  position: absolute;
+  right: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  line-height: 1.1;
+}
+
+/** cover item text */
+.filterGroupOnlyButton::before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  right: 100%;
+  bottom: 0;
+  width: var(--space-small);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0), var(--color-highlight) 75%);
+}
+
+/** filter hover state */
+.filterGroupItem:hover .filterGroupOnlyButton {
+  display: block;
+}
+
+/** Filter group variation */
+.filterGroupLabelSuffixCustom {
+  color: var(--color-text);
+  text-transform: lowercase;
+}
+
+.filterGroupSearchNotFound {
+  text-align: center;
+  min-height: calc(10 * (var(--space-small) + 2 * var(--space-xxxsmall)));
+  font-size: var(--size-small);
+  color: var(--color-text-light);
+}

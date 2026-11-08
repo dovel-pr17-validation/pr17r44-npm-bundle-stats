@@ -1,0 +1,142 @@
+import React, { type MouseEvent, useCallback, useMemo, ElementType } from 'react';
+import { getGlobalMetricType, getMetricRunInfo, MetricTypes } from '@bundle-stats/utils';
+import { Focusable } from 'ariakit/focusable';
+
+import { Stack } from '../../layout/stack';
+import { FlexStack } from '../../layout/flex-stack';
+import { Icon } from '../../ui/icon';
+import { RunInfo, RunInfoProps } from '../run-info';
+import css from './metric-run-info.module.css';
+
+type MetricInfoProps = {
+  title: string;
+  description?: string;
+  url?: string;
+};
+
+const MetricHoverCard = ({ title, description, url }: MetricInfoProps) => {
+  // The component parent can be rendered inside a link or a button
+  // use a focusable element with onClick to prevent DOM issues (a > button, a > a, etc)
+  const onClick = useCallback(
+    (event: MouseEvent<HTMLSpanElement>) => {
+      if (!url) {
+        return;
+      }
+
+      event.preventDefault();
+      event.stopPropagation();
+      window.open(url);
+    },
+    [url],
+  );
+
+  return (
+    <Stack space="xxsmall" className={css.metricHoverCard}>
+      <h3 className={css.metricHoverCardTitle}>{title}</h3>
+      <Stack space="xxxsmall">
+        <p className={css.metricHoverCardDescription}>{description}</p>
+        {url && (
+          <div>
+            <Focusable as="span" onClick={onClick} className={css.readMoreLink}>
+              <FlexStack alignItems="center" space="xxxsmall">
+                <span>Learn more</span>
+                <Icon glyph={Icon.ICONS.EXTERNAL_LINK} size="small" />
+              </FlexStack>
+            </Focusable>
+          </div>
+        )}
+      </Stack>
+    </Stack>
+  );
+};
+
+export type MetricRunInfoProps = {
+  metricId: string;
+  current: number;
+  baseline?: number;
+  showMetricDescription?: boolean;
+  titleWrapper?: ElementType;
+  /**
+   * Show the delta absolute value alongside the percentage value.
+   * Only applies when `showDelta` is `true`.
+   * @default false
+   */
+  showDeltaAbsoluteValue?: boolean;
+} & Pick<RunInfoProps, 'showDelta' | 'showBaseline' | 'size' | 'loading'>;
+
+export const MetricRunInfo = (props: MetricRunInfoProps & React.ComponentProps<'div'>) => {
+  const {
+    metricId,
+    current,
+    baseline = 0,
+    showDelta = true,
+    showMetricDescription = true,
+    showBaseline = true,
+    showDeltaAbsoluteValue = false,
+    titleWrapper: CustomTitleWrapper = React.Fragment,
+    ...restProps
+  } = props;
+
+  const metric = getGlobalMetricType(metricId);
+  const metricRunInfo = getMetricRunInfo(metric, current, baseline || 0);
+
+  const titleHoverCard = useMemo(() => {
+    if (showMetricDescription && (metric.description || metric.url)) {
+      return (
+        <MetricHoverCard title={metric.label} description={metric.description} url={metric.url} />
+      );
+    }
+
+    return null;
+  }, [showMetricDescription, metric]);
+
+  const title = useMemo(
+    () => <CustomTitleWrapper>{metric.label}</CustomTitleWrapper>,
+    [CustomTitleWrapper, metric.label],
+  );
+
+  const baselineProps = useMemo(() => {
+    if (showBaseline) {
+      return {
+        showBaseline,
+        baseline: metric.formatter(baseline),
+      };
+    }
+
+    return { showBaseline };
+  }, [showBaseline, baseline]);
+
+  const deltaProps = useMemo(() => {
+    if (!showDelta || metric.skipDelta) {
+      return {
+        showDelta: false,
+      };
+    }
+
+    // If the delta data is missing, do not render the dats
+    if (!('delta' in metricRunInfo)) {
+      return {
+        showDelta: false,
+      };
+    }
+
+    return {
+      showDelta: true,
+      deltaType: metricRunInfo.deltaType,
+      deltaPercentage: metricRunInfo.displayDeltaPercentage,
+      ...(showDeltaAbsoluteValue && { delta: metricRunInfo.displayDelta }),
+    };
+  }, [metric, metricRunInfo, showDelta, showDeltaAbsoluteValue]);
+
+  return (
+    <RunInfo
+      title={title}
+      titleHoverCard={titleHoverCard}
+      enhance
+      current={metricRunInfo.displayValue}
+      {...baselineProps}
+      {...deltaProps}
+      {...restProps}
+    />
+  );
+};

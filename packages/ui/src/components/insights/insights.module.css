@@ -1,0 +1,15 @@
+.icon {
+  flex: 0 0 auto;
+}
+
+.entry {
+  color: inherit;
+  line-height: var(--line-height-heading);
+  text-decoration: none;
+}
+
+.entry:hover,
+.entry:active,
+.entry:focus {
+  text-decoration: underline;
+}

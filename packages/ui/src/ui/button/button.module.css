@@ -1,0 +1,378 @@
+.root {
+  /* use for vertical padding and to compute gap and horizontal spacing */
+  --button-space: 0px;
+  /* button border width */
+  --border-width: 0px;
+  /* line height in pixels to prevent layout shift when rendering a glyph */
+  --line-height: var(--space-small);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(var(--button-space) * 0.66);
+  appearance: none;
+  padding: 0;
+  border: var(--border-width) solid transparent;
+  background: none;
+  color: var(--color-text-ultra-light);
+  font-size: var(--size-medium);
+  font-family: var(--font-family);
+  line-height: var(--line-height);
+  white-space: nowrap;
+  transition-property: color, background-color, border-color;
+  transition-duration: var(--transition-duration-out);
+  transition-timing-function: var(--transition-timing-function);
+}
+
+a.root {
+  text-decoration: none;
+}
+
+.root:focus,
+.root:hover,
+.root:active {
+  outline: none;
+  color: var(--color-text-light);
+  transition-duration: var(--transition-duration-in);
+}
+
+.glyph {
+  flex: 0 0 auto;
+  width: var(--line-height);
+  height: var(--line-height);
+}
+
+.text {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+/**
+ * Kind variation
+ */
+.primary {
+  color: var(--color-accent);
+}
+
+.primary:hover,
+.primary:active,
+.primary:focus {
+  color: var(--color-accent-dark);
+}
+
+.secondary {
+  color: var(--color-secondary);
+}
+
+.secondary:hover,
+.secondary:active,
+.secondary:focus {
+  color: var(--color-secondary-dark);
+}
+
+.danger {
+  color: var(--color-danger);
+}
+
+.danger:hover,
+.danger:active,
+.danger:focus {
+  color: var(--color-danger-dark);
+}
+
+.warning {
+  color: var(--color-warning);
+}
+
+.warning:hover,
+.warning:active,
+.warning:focus {
+  color: var(--color-warning-dark);
+}
+
+.info {
+  color: var(--color-info);
+}
+
+.info:hover,
+.info:active,
+.info:focus {
+  color: var(--color-info-dark);
+}
+
+.success {
+  color: var(--color-success);
+}
+
+.success:hover,
+.success:active,
+.success:focus {
+  color: var(--color-success-dark);
+}
+
+/**
+ * Solid Kind variation
+ */
+.solid {
+  background: var(--color-text-light);
+  color: var(--color-background);
+}
+
+.solid:hover,
+.solid:active,
+.solid:focus {
+  background: var(--color-text);
+  color: var(--color-background);
+}
+
+.solid--primary {
+  background: var(--color-accent);
+}
+
+.solid--primary:hover,
+.solid--primary:active,
+.solid--primary:focus {
+  background: var(--color-accent-dark);
+}
+
+.solid--secondary {
+  background: var(--color-secondary);
+}
+
+.solid--secondary:hover,
+.solid--secondary:active,
+.solid--secondary:focus {
+  background: var(--color-secondary-dark);
+}
+
+.solid--danger {
+  background: var(--color-danger);
+}
+
+.solid--danger:hover,
+.solid--danger:active,
+.solid--danger:focus {
+  background: var(--color-danger-dark);
+}
+
+.solid--warning {
+  background: var(--color-warning);
+}
+
+.solid--warning:hover,
+.solid--warning:active,
+.solid--warning:focus {
+  background: var(--color-warning-dark);
+}
+
+.solid--info {
+  background: var(--color-info);
+}
+
+.solid--info:hover,
+.solid--info:active,
+.solid--info:focus {
+  background: var(--color-info-dark);
+}
+
+.solid--success {
+  background: var(--color-success);
+}
+
+.solid--success:hover,
+.solid--success:active,
+.solid--success:focus {
+  background: var(--color-success-dark);
+}
+
+/**
+ * Size variation
+ */
+.xsmall {
+  --button-space: var(--space-xxxsmall);
+  --line-height: var(--space-xsmall);
+
+  font-size: var(--size-xsmall);
+}
+
+.small {
+  --button-space: var(--space-xxsmall);
+  --line-height: var(--space-small);
+
+  font-size: var(--size-small);
+}
+
+.medium {
+  --button-space: var(--space-xsmall);
+  --line-height: var(--space-small);
+}
+
+.medium .glyph {
+  margin: calc(0px - var(--space-xxxsmall) / 2);
+  height: calc(var(--space-small) + var(--space-xxxsmall));
+  width: calc(var(--space-small) + var(--space-xxxsmall));
+}
+
+.large {
+  --button-space: var(--space-small);
+  --line-height: var(--space-medium);
+
+  font-size: var(--size-large);
+}
+
+/**
+ * Outline variation
+ */
+.outline {
+  --border-width: 1px;
+  border-color: var(--color-outline);
+}
+
+.outline:hover,
+.outline:active,
+.outline:focus {
+  border-color: var(--color-outline-dark);
+}
+
+.outline--primary {
+  border-color: var(--color-outline-primary);
+}
+
+.outline--primary:hover,
+.outline--primary:active,
+.outline--primary:focus {
+  border-color: var(--color-outline-primary-dark);
+}
+
+.outline--secondary {
+  border-color: var(--color-outline-secondary);
+}
+
+.outline--secondary:hover,
+.outline--secondary:active,
+.outline--secondary:focus {
+  border-color: var(--color-outline-secondary-dark);
+}
+
+.outline--danger {
+  border-color: var(--color-outline-danger);
+}
+
+.outline--danger:hover,
+.outline--danger:active,
+.outline--danger:focus {
+  border-color: var(--color-outline-danger-dark);
+}
+
+.outline--warning {
+  border-color: var(--color-outline-warning);
+}
+
+.outline--warning:hover,
+.outline--warning:active,
+.outline--warning:focus {
+  border-color: var(--color-outline-warning-dark);
+}
+
+.outline--info {
+  border-color: var(--color-outline-info);
+}
+
+.outline--info:hover,
+.outline--info:active,
+.outline--info:focus {
+  border-color: var(--color-outline-info-dark);
+}
+
+.outline--success {
+  border-color: var(--color-outline-success);
+}
+
+.outline--success:hover,
+.outline--success:active,
+.outline--success:focus {
+  border-color: var(--color-outline-success-dark);
+}
+
+/**
+ * Padding variation
+ */
+.padding {
+  padding: calc(var(--button-space) - var(--border-width));
+}
+
+/**
+ * Radius variation
+ */
+.radius--xsmall {
+  border-radius: var(--radius-xsmall);
+}
+
+.radius--small {
+  border-radius: var(--radius-small);
+}
+
+.radius--medium {
+  border-radius: var(--radius-medium);
+}
+
+.radius--large {
+  border-radius: var(--radius-large);
+}
+
+.radius--circle {
+  border-radius: 50%;
+}
+
+/**
+ * Active variation
+ */
+.active {
+  text-decoration: underline;
+}
+
+.active-outline-default {
+  background: var(--color-highlight);
+  text-decoration: none;
+}
+
+.active-outline-primary {
+  background: var(--color-highlight-primary);
+  text-decoration: none;
+}
+.active-outline-secondary {
+  background: var(--color-highlight-secondary);
+  text-decoration: none;
+}
+
+.active-outline-info {
+  background: var(--color-highlight-info);
+  text-decoration: none;
+}
+
+.active-outline-success {
+  background: var(--color-highlight-success);
+  text-decoration: none;
+}
+
+.active-outline-warning {
+  background: var(--color-highlight-warning);
+  text-decoration: none;
+}
+
+.active-outline-danger {
+  background: var(--color-highlight-danger);
+  text-decoration: none;
+}
+
+/**
+ * Disabled state
+ */
+.root[disabled] {
+  opacity: 0.9;
+}
+
+.root[disabled] .icon,
+.root[disabled] .content {
+  opacity: 0.8;
+}

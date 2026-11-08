@@ -1,0 +1,143 @@
+/** place overlays triggered from inside the entry info above the panel, under the header */
+.portal {
+  --layer-overlay: calc(var(--layer-xhigh) + 2);
+}
+
+.root {
+  position: fixed;
+  right: 0;
+  top: var(--entry-info-top);
+  bottom: 0;
+  width: 100vw;
+  max-width: var(--entry-info-width);
+  /** above the sticky tabs */
+  z-index: calc(var(--layer-xhigh) + 1);
+  background: var(--color-background);
+  box-shadow: var(--shadow-layer-high);
+}
+
+/** layout - full height content */
+.root {
+  display: flex;
+  flex-flow: column;
+}
+
+.header {
+  flex: 0 0 auto;
+}
+
+.contentWrapper {
+  flex: 1 1 auto;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+/** header */
+.header {
+  /** space for close icon */
+  padding-right: calc(var(--space-xlarge) + var(--space-xxxsmall) + var(--space-xsmall));
+  border-bottom: 1px solid var(--color-outline);
+}
+
+.headerClose {
+  position: absolute;
+  right: calc(var(--space-small) - var(--space-xxxsmall));
+  top: calc(var(--space-small) - var(--space-xxxsmall));
+  color: var(--color-text-ultra-light);
+}
+
+.headerClose:hover,
+.headerClose:active,
+.headerClose:focus {
+  color: var(--color-text-light);
+}
+
+/** comon components */
+.fileName {
+  max-width: 100%;
+  padding: 0 2px;
+  background: var(--color-highlight-warning);
+  line-height: var(--line-height);
+}
+
+.label {
+  font-size: var(--size-medium);
+}
+
+.runs {
+  font-size: var(--size-small);
+}
+
+.runs .runsColJob {
+  white-space: nowrap;
+}
+
+.runs .runsColName {
+  width: 100%;
+}
+
+.runs .runsColSize {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.size {
+  font-family: var(--font-family-fixed);
+}
+
+/**
+ * Meta element
+ */
+.meta {
+}
+
+.metaLabel {
+  margin-right: var(--space-xxxsmall);
+  min-width: 8em;
+  flex: 0 1 6em;
+  color: var(--color-text-light);
+}
+
+.metaLabelTooltip {
+  margin-left: var(--space-xxxsmall);
+  color: var(--color-text-ultra-light);
+}
+
+.metaContent {
+  padding: 1px 0;
+  flex: 0 1 auto;
+}
+
+.metaLink {
+  padding: 1px var(--space-xxxsmall);
+  display: inline-block;
+  line-height: var(--line-height-heading);
+  border-radius: var(--radius-small);
+  background: var(--color-highlight);
+
+  text-decoration: none;
+  text-transform: none;
+  font-weight: normal;
+  max-width: 16em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.metaLink {
+  margin-right: var(--space-xxxsmall);
+}
+
+.metaLink:hover,
+.metaLink:active,
+.metaLink:focus {
+  background: var(--color-outline);
+  color: var(--color-primary-dark);
+}
+
+@media (min-width: 640px) {
+  .meta {
+    display: flex;
+    align-items: flex-start;
+  }
+}

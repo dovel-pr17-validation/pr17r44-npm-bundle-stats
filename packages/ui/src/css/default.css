@@ -1,0 +1,75 @@
+@import url('modern-css-reset/dist/reset.css');
+
+/** modern-css-reset updates */
+pre,
+ul,
+ol,
+button {
+  margin: 0;
+}
+
+html {
+  font-family: var(--font-family);
+  font-size: 81.25%;
+}
+
+body {
+  background: var(--color-background);
+  accent-color: var(--color-accent);
+  color: var(--color-text);
+  line-height: var(--line-height);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-heading);
+  font-weight: 500;
+  line-height: var(--line-height-heading);
+}
+
+h1 {
+  font-size: var(--size-xxxlarge);
+}
+
+h2 {
+  font-size: var(--size-xxlarge);
+}
+
+h3 {
+  font-size: var(--size-xlarge);
+}
+
+h4 {
+  font-size: var(--size-large);
+}
+
+h5 {
+  font-size: var(--size-medium);
+}
+
+h6 {
+  font-size: var(--size-small);
+}
+
+code {
+  font-family: var(--font-family-fixed);
+}
+
+a {
+  color: var(--color-accent);
+  transition-property: color;
+  transition-duration: var(--transition-duration-out);
+  transition-timing-function: var(--transition-timing-function);
+}
+
+a:focus,
+a:active,
+a:hover {
+  color: var(--color-accent-dark);
+  outline: none;
+  transition-duration: var(--transition-duration-in);
+}
